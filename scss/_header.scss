@@ -1,0 +1,16 @@
+.header{
+  background-color: $header-background-color;
+  padding: 22.5px 10px;
+  .logo {
+    height: 35px;
+    vertical-align: top;
+  }
+  .download {
+    float: right;
+    border: 1px solid grey;
+    padding: 2px 10px;
+    border-radius: 13.5px;
+    margin-top: 4px;
+  }
+  @extend %clearfix;
+}
