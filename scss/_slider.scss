@@ -1,0 +1,21 @@
+.slider {
+  border: 1px solid red;
+  width: 100vw;
+  overflow: hidden;
+  &.none {
+    display: none;
+  }
+  .slider-wrapper {
+    display: flex;
+    width: 100vw;
+    transition: all 1s;
+    .slider-items {
+      > a {
+        > img {
+          vertical-align: top;
+          width: 100vw;
+        }
+      }
+    }
+  }
+}
