@@ -2,10 +2,18 @@ $header-background-color: #fff;
 @function px($npx) {
   @return $npx / 375 * 100 + vw;
 }
+
+$nav-item-height: 40px;
+
+$nav-item-active-color: #31c27c;
+
 %clearfix{
   &::after{
     display: block;
     content: '';
     clear: both;
   }
+}
+%debug {
+  border: 1px solid red;
 }

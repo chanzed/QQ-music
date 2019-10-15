@@ -1,0 +1,28 @@
+.navbar {
+  .nav-list {
+    display: flex;
+    color: rgba(0, 0, 0, 0.6);
+    transition: all 2;
+    .nav-item {
+      flex-grow: 1;
+      text-align: center;
+      height: 40px;
+      line-height: $nav-item-height;
+      &.active {
+        color: $nav-item-active-color;
+        position: relative;
+        &::after {
+          display: block;
+          content: "";
+          background-color: $nav-item-active-color;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          height: 2px;
+        }
+      }
+    }
+  }
+}

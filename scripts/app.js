@@ -1,4 +1,5 @@
 import {Slider, log} from './slider.js'
+import '../scripts/tab.js'
 !function(){
   let slider = new Slider({
     el: document.querySelector('#slider'),
