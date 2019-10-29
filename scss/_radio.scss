@@ -1,0 +1,51 @@
+.radios {
+  width: 100vw;
+  margin-top: 11px;
+  .title {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 11px;
+    font-weight: 400;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 10px;
+  }
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &-item {
+      position: relative;
+      width: 48%;
+      height: px(226);
+      margin-bottom: 10px;
+      .icon {
+        background-image: url("../images/list_sprite.png");
+        background-repeat: no-repeat;
+        background-size: 24px 60px;
+      }
+      .icon-play {
+        height: 24px;
+        bottom: px(51);
+        right: px(5);
+        width: 24px;
+        background-position: 0 0;
+        position: absolute;
+        display: block;
+      }
+      > img {
+        vertical-align: top;
+        width: 100%;
+      }
+    }
+    &-info {
+      background: #fff;
+      height: 46px;
+      line-height: 18px;
+      white-space: normal;
+      word-wrap: break-word;
+      padding: 5px;
+    }
+  }
+}

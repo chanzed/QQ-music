@@ -1,15 +1,44 @@
-import {Slider, log} from './slider.js'
+import { Slider, log } from './slider.js'
 import '../scripts/tab.js'
-!function(){
-  let slider = new Slider({
-    el: document.querySelector('#slider'),
-    slides: [
-      {link: '#1', image: '../images/1.jpg'},
-      {link: '#2', image: '../images/2.jpg'},
-      {link: '#3', image: '../images/3.jpg'},
-      {link: '#4', image: '../images/4.jpg'},
-      {link: '#5', image: '../images/5.jpg'},
-    ] 
-  })
-  window.slider = slider
+import { lazyload } from './lazyload.js'
+!function () {
+  fetch('../json/rec.json')
+    .then(response => response.json())
+    .then(render)
+
+  function render(json) {
+    renderSlider(json.data.slider)
+    renderRadios(json.data.radioList)
+    renderSongsList(json.data.songList)
+    lazyload(document.querySelectorAll('.lazyload'))
+  }
+  function renderSlider(slides) {
+    slides = slides.map(slide => {
+      return { link: slide.linkUrl, image: slide.picUrl }
+    })
+    new Slider({
+      el: document.querySelector('#slider'),
+      slides: slides
+    })
+  }
+  
+  function renderRadios(radios) {
+    document.querySelectorAll('.radios .radios-list')[0].innerHTML = radios.map(radio => 
+      `<div class="radios-list-item">
+        <img class='lazyload' data-src="${radio.picUrl}" alt="图片">
+        <span class="icon icon-play"></span>
+        <div class="radios-list-info">${radio.Ftitle}</div>
+      </div>`
+    ).join('')
+  }
+  function renderSongsList(songs) {
+    document.querySelectorAll('.radios .radios-list')[1].innerHTML = songs.map(song => 
+      `<div class="radios-list-item">
+        <img class='lazyload' data-src="${song.picUrl}" alt="图片">
+        <span class="icon icon-play"></span>
+        <div class="radios-list-info">${song.songListDesc}</div>
+      </div>`
+    ).join('')
+
+  }
 }()
