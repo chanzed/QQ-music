@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>QQ Music</title>
 </head>
 
@@ -21,7 +23,7 @@
     </ul>
   </nav>
   <div class="views">
-    <div class="recommend-view tab-content">
+    <div class="recommend-view tab-content hide">
       <div class="slider" id=slider> </div>
       <div class="radios" id='radios'>
         <h1 class="title">电台</h1>
@@ -31,10 +33,44 @@
       </div>
     </div>
     <div class="rank-view tab-content hide">
-      排行榜
+      <div class="rank">
+        <div class="rank-item">
+          <div class="rank-picture-wrapper">
+            <img class='rank-picture' src="http://y.gtimg.cn/music/photo_new/T003R500x500M000002XRzt10KY5cc.jpg"
+              alt="图片">
+          </div>
+          <div class="rank-list">
+            <h3 class="rank-list-title">流型指数榜</h3>
+            <ul class="rank-list-items">
+              <li class="rank-list-item">1<span class='song-name'>那什么</span>-永彬Ryan</li>
+              <li class="rank-list-item">2<span class='song-name'>这就是爱情</span>-李代沫</li>
+              <li class="rank-list-item">3<span class='song-name'>lose you to love me</span>-Selena</li>
+            </ul>
+          </div>
+          <div class="rank-item-arrow"></div>
+        </div>
+      </div>
     </div>
-    <div class="search-view tab-content hide">
-      搜索
+    <div class="search-view tab-content">
+      <div class="search-bar">
+        <form action='#' class="input-wrapper">
+          <input type="text" id="search" class='search' placeholder="搜索歌曲、歌单、专辑">
+        </form>
+        <div class="search-icon-wrapper">
+          <div class="search-icon">
+            <div class="circle"></div>
+            <div class="stick"></div>
+          </div>
+        </div>
+      </div>
+      <div class="search-results">
+        <div class="song-list"> </div>
+      </div>
+      <div class="search-loading">
+          <i class="loading-icon"></i>
+          <div class="loading-text">正在载入更多...</div>
+          <div class="loading-done hide">已加载全部</div>
+        </div>
     </div>
   </div>
   <script src="./qqMusic.js"></script>
