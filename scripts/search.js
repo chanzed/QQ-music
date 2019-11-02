@@ -45,7 +45,7 @@ class Search {
     }
     console.log(this.keyword)
     this.fetching = true
-    fetch(`http://localhost:4000/search?keyword=${this.keyword}&page=${page || this.page}`)
+    fetch(`http://192.168.2.104:4000/search?keyword=${this.keyword}&page=${page || this.page}`)
       .then(response => response.json())
       .then(json => {
         this.page = json.data.song.curpage

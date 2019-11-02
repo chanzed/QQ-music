@@ -1,0 +1,139 @@
+%icon-center {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+.player-container {
+  z-index: 9;
+  .player-background {
+    border: 1px solid red;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-size: cover;
+    background-position: bottom center;
+    filter: blur(15px);
+    transform: scale(1.15);
+    background-attachment: fixed;
+  }
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+  .player-header {
+    padding: 15px;
+    color: #fff;
+    @extend %clearfix;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .album-cover {
+    display: block;
+    float: left;
+    width: 80px;
+    vertical-align: top;
+    margin-right: 15px;
+  }
+  .song-info {
+    float: left;
+    padding: 15.5px 0;
+    .song-name {
+      font-size: 18px;
+      font-weight: normal;
+      padding: 3px 0;
+    }
+    .song-artist {
+      font-size: 14px;
+    }
+  }
+  .icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #b1b5b5;
+    float: right;
+    margin: 18px 0;
+    border-radius: 50%;
+    position: relative;
+    .pause {
+      @extend %icon-center;
+      height: 19px;
+      width: 10px;
+      border-left: 2px solid #b1b5b5;
+      border-right: 2px solid #b1b5b5;
+      display: none;
+    }
+    .play {
+      @extend %icon-center;
+      right: -5px;
+      border-width: 10px 0 10px 15px;
+      border-style: solid;
+      border-color: transparent transparent transparent #b1b5b5;
+      width: 0;
+      height: 0;
+    }
+  }
+  .player-lyrics {
+    height: calc(100% - 205px);
+  }
+  .player-footer {
+    .progress {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      .progress-bar {
+        flex-basis: 80%;
+        height: 2px;
+        border-radius: 1px;
+        background-color: rgba(255, 255, 255, 0.2);
+        overflow: hidden;
+        .progress-bar-progress {
+          width: 100%;
+          height: 100%;
+          border-radius: 1px;
+          background: #31c27c;
+          transform: translateX(-100%);
+        }
+      }
+      .progress-time {
+        flex-basis: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+    }
+    .actions {
+      height: 65px;
+      margin-top: 10px;
+      .btn-download {
+        position: relative;
+        display: block;
+        height: 45px;
+        line-height: 45px;
+        margin: 0 50px;
+        padding: 0 55px;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 20px;
+        color: #fff;
+        border-radius: 999px;
+        background-color: #31c27c;
+        text-align: center;
+        background-image: url(../images/sprite_play.png);
+        background-repeat: no-repeat;
+        background-size: 43px 380px;
+        background-position: 6px -321px;
+      }
+    }
+  }
+}
