@@ -2,6 +2,7 @@ import { Slider, log } from './slider.js'
 import '../scripts/tab.js'
 import { lazyload } from './lazyload.js'
 import { Search } from './search.js'
+import { MusicPlayer } from './music_player.js'
 !function () {
   fetch('../json/rec.json')
     .then(response => response.json())
@@ -14,6 +15,7 @@ import { Search } from './search.js'
       lazyload(document.querySelectorAll('.lazyload'))
     })
   new Search(document.querySelector('.search-view'))
+  new MusicPlayer(document.querySelector('.player-container'))
 
   function render(json) {
     renderSlider(json.data.slider)

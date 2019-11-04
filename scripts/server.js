@@ -30,7 +30,25 @@ app.get('/search', async (req, res) => {
   try {
     res.json(await request({
       uri: url,
-      json: true,
+      headers: Headers,
+      json: true
+    }))
+  } catch (e) {
+    res.json({ error: e.message })
+  }
+})
+app.get('/song_image', async (req, res) => {
+  let { albummid } = req.query
+  const url = `https://y.gtimg.cn/music/photo_new/T002R300x300M000${albummid}_1.jpg?max_age=2592000`
+  let Headers = { "authority": "u.y.qq.com",
+  "origin": "https://y.qq.com",
+  "referer": "https://y.qq.com/m/index.html?tab=recommend",
+  "accept": "image/webp,image/apng,image/*,*/*;q=0.8",
+  "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"}
+  res.set('content-type', 'image/webp')
+  try {
+    res.end(await request({
+      uri: url,
       headers: Headers
     }))
   } catch (e) {
